@@ -21,7 +21,7 @@
         touch-action: manipulation;
     }
 
-    /* Flex */
+    /* Flex - desktop */
     .container1 {
         display: flex;
     }
@@ -77,6 +77,7 @@
         transition: color .2s;
     }
    
+    /* Flex - tablet */
     @media only screen and (max-width: 800px) {
         .container1 {
             display: block;
@@ -85,6 +86,8 @@
             flex-basis: calc(50% - 1rem);
         }
     }
+
+    /* Flex - mobile */
     @media only screen and (max-width: 600px) {
         .container1 {
             display: block;
