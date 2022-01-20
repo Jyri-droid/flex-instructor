@@ -20,6 +20,29 @@
         background-color: black;
         touch-action: manipulation;
     }
+
+    /* Flex */
+    .container1 {
+        display: flex;
+    }
+    .container2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .item1 {
+        flex: 1;
+    }
+    .item2 {
+        flex-basis: 100%;
+    }
+    .item3 {
+        flex-basis: calc(100% / 3 - 1rem);
+    }
+    .item5 {
+        flex-basis: calc(50% - 1rem);
+    }
+
+    /* Not flex-related CSS */
     div {
         margin: .5rem;
         border-width: 2px;
@@ -33,34 +56,20 @@
         color: dimgray;
     }
     .container1, .container2 {
-        display: flex;
         border-color:dimgrey;
-    }
-    .container1 {
-        display: flex;
-    }
-    .container2 {
-        flex-wrap: wrap;
     }
     .container1 > div, .container2 > div {
         font-size: .75rem;
     }
-    .item1 {
-        flex: 1;
+    .item1, .item3 {
         border-color: turquoise;
         color: turquoise;
     }
     .item2 {
-        flex-basis: 100%;
         border-color: mediumorchid;
         color: mediumorchid;
     }
-    .item3 {
-        flex-basis: calc(100% / 3 - 1rem);
-        color: turquoise;
-    }
     .item5 {
-        flex-basis: calc(50% - 1rem);
         border-color: darkorange;
         color: darkorange;
     }
