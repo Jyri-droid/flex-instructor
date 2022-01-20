@@ -22,15 +22,17 @@
     }
 
     /* Flex - desktop */
+    /* The simple way: Flex vs. block */
     .container1 {
         display: flex;
     }
+    .item1 {
+        flex: 1;
+    }
+    /* The fancier way: Flex-basis */
     .container2 {
         display: flex;
         flex-wrap: wrap;
-    }
-    .item1 {
-        flex: 1;
     }
     .item2 {
         flex-basis: 100%;
