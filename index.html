@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>CSS Flex instructor for responsive layouts</title>
+    <meta name="author" content="Jyri Konttinen">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
+<head>
+<style>
+    html {
+		font-size: 16px;
+    }
+    * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 400;
+        margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+    }
+    body {
+        margin: 1rem;
+        background-color: black;
+        touch-action: manipulation;
+    }
+    div {
+        margin: .5rem;
+        border-width: 2px;
+        border-style: solid;
+    }
+    div, p {
+        padding: .5rem;
+    }
+    p {
+        margin: 1.5rem .5rem 0 .5rem;
+        color: dimgray;
+    }
+    .container1, .container2 {
+        display: flex;
+        border-color:dimgrey;
+    }
+    .container1 {
+        display: flex;
+    }
+    .container2 {
+        flex-wrap: wrap;
+    }
+    .container1 > div, .container2 > div {
+        font-size: .75rem;
+    }
+    .item1 {
+        flex: 1;
+        border-color: turquoise;
+        color: turquoise;
+    }
+    .item2 {
+        flex-basis: 100%;
+        border-color: mediumorchid;
+        color: mediumorchid;
+    }
+    .item3 {
+        flex-basis: calc(100% / 3 - 1rem);
+        color: turquoise;
+    }
+    .item5 {
+        flex-basis: calc(50% - 1rem);
+        border-color: darkorange;
+        color: darkorange;
+    }
+    #screenSize {
+        transition: color .2s;
+    }
+   
+    @media only screen and (max-width: 800px) {
+        .container1 {
+            display: block;
+        }
+        .item3, .item2, .item5 {
+            flex-basis: calc(50% - 1rem);
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        .container1 {
+            display: block;
+        }
+        .item2, .item3 {
+            flex-basis: 100%;
+        }
+        .item5 {
+            flex-basis: calc(50% - 1rem);
+        }
+    }
+
+</style>
+</head>
+<body>
+
+    <p></p>
+    <div class="container1">
+        <div class="item1"></div>
+        <div class="item1"></div>
+        <div class="item1"></div>
+    </div>
+    <p></p>
+    <div class="container2">
+        <div class="item3"></div>
+        <div class="item3"></div>
+        <div class="item3"></div>
+        <div class="item5"></div>
+        <div class="item5"></div>
+        <div class="item2"></div>
+    </div>
+    <p id="screenSize">Breakpoint: desktop</p>
+
+</body>
+<script src="scripts.js"></script>
+</html>
