@@ -23,18 +23,23 @@ getStyle = (cssSelector) => {
     return styles;
 }
 
+// Assign current breakpoint based on browser window's width
+getBreakpoint = (windowWidth) => {
+    if (windowWidth <= 600) {
+        return "mobile";
+    }
+    if (windowWidth > 600 && windowWidth <= 800) {
+        return "tablet";
+    } 
+    if (windowWidth > 800) { 
+        return "desktop"; 
+    }
+}
+
 // Re-render CSS styles when breakpoint changes
 let currentBreakpoint;
-let breakpoint ="";
 window.addEventListener("resize", function() {
-    if (window.innerWidth <= 600) {
-        breakpoint = "mobile";
-    }
-    if (window.innerWidth > 600 && window.innerWidth <= 800) {
-        breakpoint = "tablet";
-    } if(window.innerWidth > 800) { 
-        breakpoint = "desktop"; 
-    }
+    const breakpoint = getBreakpoint(window.innerWidth);
     if (breakpoint !== currentBreakpoint) {
         renderStyles();
         changeBreakpoint(breakpoint);
@@ -57,7 +62,7 @@ renderStyles = () => {
     pElements[0].innerHTML = getStyle(".container1");
     pElements[1].innerHTML = getStyle(".container2");
 }
-renderStyles();
+
 
 // Assign breakpoint indicator
 const screenSizeIndicator = document.getElementById("screenSize");
@@ -81,3 +86,6 @@ blinkBreakpoint = () => {
             screenSizeIndicator.style.color = "dimgray";
         }, 350);
 }
+
+changeBreakpoint(getBreakpoint(window.innerWidth));
+renderStyles();
