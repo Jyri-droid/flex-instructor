@@ -25,15 +25,15 @@ getStyle = (cssSelector) => {
 
 // Re-render CSS styles when breakpoint changes
 let currentBreakpoint;
-let breakpoint;
+let breakpoint ="";
 window.addEventListener("resize", function() {
     if (window.innerWidth <= 600) {
-        breakpoint = 1;
+        breakpoint = "mobile";
     }
     if (window.innerWidth > 600 && window.innerWidth <= 800) {
-        breakpoint = 2;
+        breakpoint = "tablet";
     } if(window.innerWidth > 800) { 
-        breakpoint = 3; 
+        breakpoint = "desktop"; 
     }
     if (breakpoint !== currentBreakpoint) {
         renderStyles();
@@ -63,14 +63,14 @@ renderStyles();
 const screenSizeIndicator = document.getElementById("screenSize");
 changeBreakpoint = (breakpoint) => {
     switch(breakpoint) {
-        case 1:
-            screenSizeIndicator.innerHTML = "Breakpoint: mobile"
+        case "mobile":
+            screenSizeIndicator.innerHTML = "Breakpoint: " + breakpoint;
             break;
-        case 2:
-            screenSizeIndicator.innerHTML = "Breakpoint: tablet"
+        case "tablet":
+            screenSizeIndicator.innerHTML = "Breakpoint: " + breakpoint;
             break;
-        case 3:
-            screenSizeIndicator.innerHTML = "Breakpoint: desktop"
+        case "desktop":
+            screenSizeIndicator.innerHTML = "Breakpoint: " + breakpoint;
     }
 }
 
@@ -79,5 +79,5 @@ blinkBreakpoint = () => {
     screenSizeIndicator.style.color = "white";
     setTimeout(function() {
             screenSizeIndicator.style.color = "dimgray";
-        }, 200);
+        }, 350);
 }
